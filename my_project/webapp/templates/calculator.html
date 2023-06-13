@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<Style>
+  .container{
+margin-left: 100px;
+  }
+</Style>
+<body>
+  <div class="container">
+<form action="/calculate" method="post">
+  {% csrf_token %}
+  <div class="form-group row">
+    <label for="inputFirst" class="col-sm-2 col-form-label">First Number</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="inputFirst" name="firstNumber">
+    </div>
+  </div>
+  <br>
+  <div class="form-group row">
+    <label for="inputSecond" class="col-sm-2 col-form-label">Second Number</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="inputSecond" name="secondNumber">
+    </div>
+  </div>
+  <br>
+  <div class="form-group row">
+    <div class="col-sm-10">
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="add" checked>
+        <label class="form-check-label" for="gridRadios1">
+          add
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="subtract">
+        <label class="form-check-label" for="gridRadios2">
+          subtract
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios3" value="multiply">
+        <label class="form-check-label" for="gridRadios3">
+          multiply
+        </label>
+      </div>
+        <div class="form-check">
+        <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios4" value="divide">
+        <label class="form-check-label" for="gridRadios4">
+          divide
+        </label>
+      </div>
+    </div>
+  </div>
+    <br>
+  <div class="form-group row">
+    <div class="col-sm-10">
+      <button type="submit" class="btn btn-primary">calculate</button>
+    </div>
+  </div>
+</form>
+{%if result != None %}
+  <p>Result: {{result}}</p>
+{% endif %}
+  {%if error != None %}
+  <p style="color: red">{{error}}</p>
+{% endif %}
+  </div>
+
+</body>
+</html>
